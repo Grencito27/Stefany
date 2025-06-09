@@ -1,0 +1,115 @@
+/* Estilos generales */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: #000000;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.main-header {
+  position: absolute;
+  top: 20px;
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0 0 10px #ff4d6d;
+  z-index: 3;
+  text-align: center;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  z-index: 2;
+  position: relative;
+}
+
+.heart {
+  height: 150px;
+  width: 150px;
+  background-color: red;
+  position: relative;
+  transform: rotate(45deg);
+  box-shadow: -20px 20px 150px #f20404;
+  animation: beat 0.6s linear infinite alternate;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  background-color: red;
+  border-radius: 50%;
+  box-shadow: 20px 20px 150px #f20404;
+}
+
+.heart::before {
+  right: 50%;
+}
+
+.heart::after {
+  top: -50%;
+}
+
+@keyframes beat {
+  0%   { transform: rotate(45deg) scale(1.1); }
+  80%  { transform: rotate(45deg) scale(1.0); }
+  100% { transform: rotate(45deg) scale(0.9); }
+}
+
+.heart-text {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  color: white;
+  font-weight: bold;
+  font-size: 28px;
+  z-index: 3;
+  text-align: center;
+}
+
+.message {
+  position: fixed;
+  bottom: 100px;
+  color: white;
+  font-size: 1.3rem;
+  text-align: center;
+  text-shadow: 0 0 6px #ff4d6d;
+  z-index: 3;
+  width: 100%;
+}
+
+.btn-music {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background: #f20404;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 0 10px #ff1e56;
+  z-index: 3;
+}
+
+.btn-music:hover {
+  background: #ff3333;
+}
+
+canvas#fallingCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
